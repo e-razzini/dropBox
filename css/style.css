@@ -12,10 +12,9 @@ body{
 .cabecario{
    height:20%;
 }
-
+.col-lg-12{margin:0;padding:0;}
 a{
-    text-decoration:none;
-   
+    text-decoration:none;   
 }
 ul{
     list-style:none;        
@@ -24,22 +23,35 @@ input[type="checkbox"]{
     display:none;
 }
 nav{
-    /*toda configuração da janela de navegação*/
-    background: #173040;
-    width:200px;
-    left:-350px;    
-    height:39%;    
-    position: absolute;
+    /*toda configuração da janela de navegação */
+    background:#173040;
+    width:300px;
+    left:-350px;
+    height:38%;/*até onde vai para baixo as opçoes de navegação*/
+    position: fixed;
     transition: oll .8s;
     text-align: center;
-    text-transform: uppercase;   
+    text-transform: uppercase;
+    z-index: 200;
+    animation: slideTO 0.4s;
+    transition: 0.4s;
 }
+
+@keyframes slideTo{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
 input[type="checkbox"]:checked ~ nav{
     transform: translateX(350px);
     /*puxa o nav-bar para dentro do site*/
 }
 ul{
-    top:60px;   
+    top:80px;   
     position:absolute;
     width:100%; /*pocissao do menu em confomidade com nav-bar*/
 }
@@ -53,13 +65,14 @@ a:hover{
     /*animação do nav-bar*/
     background-color:#171E26;
     color: #173040;         
-    letter-spacing:15px;
+    letter-spacing:5px;
+    text-decoration: none;
 }
 label{   
-    /*posição do icone*/   
+    /*posição do icone*/
     padding:5px;
     position:absolute;
-    z-index:1;
+    z-index: 2000;
 }
 header {
     /*cabeçario do site*/
